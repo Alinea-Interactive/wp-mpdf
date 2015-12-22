@@ -445,6 +445,7 @@ function mpdf_exec($outputToBrowser='') {
 			$templateFile = $templatePath . get_option('mpdf_theme').'.php';
 		}
 
+		$templateFile = apply_filters('mpdf_exec_templateFile', $templateFile);
 		$pdf_output = '';
 		require($templateFile);
 		mpdf_output($pdf_output, true, $outputToBrowser, $dsatz->pdfname, $templatePath);
